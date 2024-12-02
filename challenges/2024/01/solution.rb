@@ -1,5 +1,7 @@
 # frozen_string_literal: true
+
 module Year2024
+  # Solution
   class Day01 < Solution
     # @input is available if you need the raw data input
     # Call `data` to access either an array of the parsed data, or a single record for a 1-line input file
@@ -13,7 +15,7 @@ module Year2024
     def part_2
       custom_process(data)
       freq_hash = @right.group_by { |a| a }
-      freq_hash.transform_values! { |v| v.size}
+      freq_hash.transform_values!(&:size)
       res = 0
       @left.each do |n|
         res += (freq_hash[n] || 0) * n
@@ -22,6 +24,7 @@ module Year2024
     end
 
     private
+
     # Processes each line of the input file and stores the result in the dataset
     # def process_input(line)
     #   line.map(&:to_i)
@@ -35,7 +38,7 @@ module Year2024
       @left = []
       @right = []
       data.each do |d|
-        l,r = d.split
+        l, r = d.split
         @left += [l.to_i]
         @right += [r.to_i]
       end
