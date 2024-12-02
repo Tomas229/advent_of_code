@@ -5,7 +5,18 @@ module Year2024
     # Call `data` to access either an array of the parsed data, or a single record for a 1-line input file
 
     def part_1
-      nil
+      left = []
+      right = []
+      data.each do |d|
+        l,r = d.split
+        left += [l.to_i]
+        right += [r.to_i]
+      end
+      left.sort!
+      right.sort!
+
+      distance = left.zip(right).map { |x| x.reduce(:-).abs }
+      distance.reduce(:+)
     end
 
     def part_2
@@ -13,14 +24,14 @@ module Year2024
     end
 
     private
-      # Processes each line of the input file and stores the result in the dataset
-      # def process_input(line)
-      #   line.map(&:to_i)
-      # end
+    # Processes each line of the input file and stores the result in the dataset
+    # def process_input(line)
+    #   line.map(&:to_i)
+    # end
 
-      # Processes the dataset as a whole
-      # def process_dataset(set)
-      #   set
-      # end
+    # Processes the dataset as a whole
+    # def process_dataset(set)
+    #   set
+    # end
   end
 end
