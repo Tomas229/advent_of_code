@@ -57,3 +57,6 @@ build-iPhoneSimulator/
 
 # Archivos RubyMine
 .idea
+
+# Archivos de Input
+input.txt
